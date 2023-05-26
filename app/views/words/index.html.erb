@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of <%= @current_user.first_name %>'s words
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new word
+    </h2>
+
+    <form action="/insert_word" method="post">
+      <div>
+        <label for="word_box">
+          Word
+        </label>
+
+        <input type="text" id="word_box" name="query_word">
+      </div>
+
+      <button>
+        Ask AI!
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Word
+        </th>
+
+        <th>
+          Meaning
+        </th>
+
+        <th>
+          Top collocations
+        </th>
+
+        <th>
+          Frequency of use
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_words.each do |a_word| %>
+      <tr>
+        <td>
+          <%= a_word.id %>
+        </td>
+
+        <td>
+          <%= a_word.word %>
+        </td>
+
+        <td>
+          <%= a_word.meaning %>
+        </td>
+
+        <td>
+          <%= a_word.top_collocations %>
+        </td>
+
+        <td>
+          <%= a_word.frequency_of_use %>
+        </td>
+
+        <td>
+          <%= a_word.user_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_word.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_word.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/words/<%= a_word.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

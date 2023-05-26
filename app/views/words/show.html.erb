@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Word #<%= @the_word.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/words">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_word/<%= @the_word.id %>">
+          Delete word
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Word
+      </dt>
+      <dd>
+        <%= @the_word.word %>
+      </dd>
+
+      <dt>
+        Meaning
+      </dt>
+      <dd>
+        <%= @the_word.meaning %>
+      </dd>
+
+      <dt>
+        Top collocations
+      </dt>
+      <dd>
+        <%= @the_word.top_collocations %>
+      </dd>
+
+      <dt>
+        Frequency of use
+      </dt>
+      <dd>
+        <%= @the_word.frequency_of_use %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_word.user_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_word.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_word.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit word
+    </h2>
+
+    <form action="/modify_word/<%= @the_word.id %>"  method="post" >
+      <div>
+        <label for="word_box">
+          Word
+        </label>
+
+        <input type="text" id="word_box" name="query_word" value="<%= @the_word.word %>">
+      </div>
+
+      <div>
+        <label for="meaning_box">
+          Meaning
+        </label>
+
+        <input type="text" id="meaning_box" name="query_meaning" value="<%= @the_word.meaning %>">
+      </div>
+
+      <div>
+        <label for="top_collocations_box">
+          Top collocations
+        </label>
+
+        <input type="text" id="top_collocations_box" name="query_top_collocations" value="<%= @the_word.top_collocations %>">
+      </div>
+
+      <div>
+        <label for="frequency_of_use_box">
+          Frequency of use
+        </label>
+
+        <input type="text" id="frequency_of_use_box" name="query_frequency_of_use" value="<%= @the_word.frequency_of_use %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_word.user_id %>">
+      </div>
+
+      <button>
+        Update word
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
