@@ -55,7 +55,7 @@ class WordsController < ApplicationController
           model: ENV.fetch("OPENAI_MODEL"),
           messages: [
             { role: "system", content: "Consicely answer the questions regarding the word provided by the user." },
-            { role: "user", content: "Can you consicely tell me the top three collocation for the word '#{the_word}'?  Say only the words."}
+            { role: "user", content: "Can you consicely tell me the top three collocation for the word '#{the_word}'?  Say only the words with numbering."}
             ],
           temperature: 1.0,
       }
