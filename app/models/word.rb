@@ -13,4 +13,6 @@
 #  user_id          :integer
 #
 class Word < ApplicationRecord
+  belongs_to :users
+
 end

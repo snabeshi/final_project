@@ -33,7 +33,7 @@
 <hr>
 <div>
   <div>
-    <table border="1">
+    <table class="table table-success table-striped-columns">
       <tr>
         <th>
           ID
@@ -48,27 +48,23 @@
         </th>
 
         <th>
-          Top collocations
+          Ex. sentence
         </th>
 
         <th>
-          Frequency of use
+          Top 3 collocations
         </th>
 
         <th>
-          User
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
+          Frequency of use (out of 20[max])
         </th>
 
         <th>
         </th>
+
+        <th>
+        </th>
+
       </tr>
 
       <% @list_of_words.each do |a_word| %>
@@ -78,11 +74,15 @@
         </td>
 
         <td>
-          <%= a_word.word %>
+          <b><%= a_word.word %></b>
         </td>
 
         <td>
           <%= a_word.meaning %>
+        </td>
+
+        <td>
+        <%= a_word.ex_sentence %>
         </td>
 
         <td>
@@ -94,19 +94,13 @@
         </td>
 
         <td>
-          <%= a_word.user_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_word.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_word.updated_at) %> ago
-        </td>
-
-        <td>
           <a href="/words/<%= a_word.id %>">
-            Show details
+            Edit the word
+          </a>
+
+        <td>
+          <a href="/delete_word/<%= a_word.id %>">
+            Delete the word
           </a>
         </td>
       </tr>
